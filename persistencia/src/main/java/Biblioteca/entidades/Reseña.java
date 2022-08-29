@@ -1,4 +1,4 @@
-package co.edu.uniquindio.unitravel.entidades;
+package Biblioteca.entidades;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
@@ -16,10 +16,10 @@ import javax.validation.constraints.NotBlank;
 public class Reseña {
 
     @Id
+    @Column(nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    @NotBlank
-    @Length(min=10, max=10,message ="La cedula debe tener 10 caracteres.")
-    private String id;
+    private Integer id;
 
     @Column(nullable = false)
     @Length(min=3, max=15,message ="El nombre debe tener entre 3 y 15 caracteres.")

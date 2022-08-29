@@ -1,4 +1,4 @@
-package co.edu.uniquindio.unitravel.entidades;
+package Biblioteca.entidades;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;

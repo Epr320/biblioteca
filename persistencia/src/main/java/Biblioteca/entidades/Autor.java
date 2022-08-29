@@ -1,10 +1,11 @@
-package co.edu.uniquindio.unitravel.entidades;
+package Biblioteca.entidades;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,19 +13,19 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class Calificacion {
-
+public class Autor {
     @Id
     @EqualsAndHashCode.Include
     @NotBlank
     @Length(min=10, max=10,message ="La cedula debe tener 10 caracteres.")
-    private String id;
+    private String cedula;
 
     @Column(nullable = false)
     @Length(min=3, max=15,message ="El nombre debe tener entre 3 y 15 caracteres.")
     @NotBlank
-    private int calificacion;
+    private String nombre;
 
-    @ManyToOne
-    private Libro libro;
+
+    @OneToMany(mappedBy = "autor")
+    private List<Libro> libros;
 }
